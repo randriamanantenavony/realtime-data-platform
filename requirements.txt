@@ -1,4 +1,7 @@
 websockets
 PyYAML
+transformers 
+torch 
+sentencepiece 
 confluent-kafka
 

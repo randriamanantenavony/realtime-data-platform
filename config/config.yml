@@ -18,3 +18,9 @@ delta:
 
   silver_path: "data/silver/tech_events"
   silver_checkpoint: "checkpoints/silver/tech_events"
+
+  sentiment_path: "data/silver/sentiment_events"
+  sentiment_checkpoint: "checkpoints/sentiment/events"
+
+  gold_path: "data/gold"
+  
