@@ -1,2 +1,6 @@
 bluesky:
   jetstream_url: "wss://jetstream.us-east.bsky.network/subscribe?wantedCollections=app.bsky.feed.post"
+
+kafka:
+  bootstrap_servers: "localhost:9092"
+  topic: "social-events"

@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+
+# Environment variables
+.env
+
+# Spark
+spark-warehouse/
+metastore_db/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
