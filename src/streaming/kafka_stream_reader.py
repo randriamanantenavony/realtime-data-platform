@@ -1,6 +1,7 @@
 import sys
 from pathlib import Path
 
+from networkx import config
 import yaml
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, from_json
@@ -40,6 +41,14 @@ def create_spark_session():
         SparkSession.builder
         .appName("RealtimeSocialDataPlatform")
         .master("local[*]")
+        .config(
+            "spark.sql.extensions",
+            "io.delta.sql.DeltaSparkSessionExtension"
+        )
+        .config(
+            "spark.sql.catalog.spark_catalog",
+            "org.apache.spark.sql.delta.catalog.DeltaCatalog"
+        )
         .getOrCreate()
     )
 
@@ -152,17 +161,24 @@ def main():
     # Affichage console uniquement pour validation
     # --------------------------------------------------------
 
-    query = (
-        final_df.writeStream
-        .format("console")
-        .outputMode("append")
-        .option(
-            "truncate",
-            "false"
-        ).start()
+    bronze_path = str(
+    PROJECT_ROOT
+    / config["delta"]["bronze_path"]
+    )
+
+    checkpoint_path = str(
+        PROJECT_ROOT
+        / config["delta"]["bronze_checkpoint"]
     )
 
 
+    query = (
+        final_df.writeStream
+        .format("delta")
+        .outputMode("append")
+        .option("checkpointLocation",  checkpoint_path)
+        .start( bronze_path)
+    )
     query.awaitTermination()
 
 

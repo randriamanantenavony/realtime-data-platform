@@ -4,3 +4,17 @@ bluesky:
 kafka:
   bootstrap_servers: "localhost:9092"
   topic: "social-events"
+
+bluesky:
+  jetstream_url: "wss://jetstream.us-east.bsky.network/subscribe?wantedCollections=app.bsky.feed.post"
+
+kafka:
+  bootstrap_servers: "localhost:9092"
+  topic: "social-events"
+
+delta:
+  bronze_path: "data/bronze/social_events"
+  bronze_checkpoint: "checkpoints/bronze/social_events"
+
+  silver_path: "data/silver/tech_events"
+  silver_checkpoint: "checkpoints/silver/tech_events"
