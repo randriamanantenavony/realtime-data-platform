@@ -1,7 +1,25 @@
-websockets
+# Configuration
 PyYAML
-transformers 
-torch 
-sentencepiece 
-confluent-kafka
 
+# Bluesky WebSocket ingestion
+websockets
+
+# Kafka Producer
+kafka-python
+
+# Data processing
+pandas
+pyarrow
+
+# Spark / Delta Lake
+pyspark==4.2.0
+delta-spark==4.2.0
+
+# NLP / Sentiment Analysis
+torch
+transformers
+sentencepiece
+
+# Dashboard
+streamlit
+deltalake
