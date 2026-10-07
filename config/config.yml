@@ -23,4 +23,6 @@ delta:
   sentiment_checkpoint: "checkpoints/sentiment/events"
 
   gold_path: "data/gold"
+
+  gold_checkpoint: "checkpoints/gold/business_metrics"
   
